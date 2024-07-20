@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- loding static files -->
+     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/feedback.css' %}">
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'images/logo/flipkartlogo.png' %}">
+    <title>Feedback</title>
+</head>
+<body>
+    <div class="container">
+        <div class="feedback-cnt">
+            <div class="title">
+                <h1>Feedback</h1>
+            </div>
+        </div>
+        <form method="post" enctype="multipart/form-data" onsubmit="return validate()">
+            {% csrf_token %}
+            <div class="ratings-cnt">
+                <div id="ratings" class="input-box experiance">
+                    <label>How do you rate us?</label>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="exp" id="exp1" value="1">Excelent
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="exp" id="exp2" value="2">Good
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="exp" id="exp3" value="3">Bad
+                        </div>
+                    </div>
+                </div>
+                <div class="error-ratings"></div>
+            </div>
+            <div class="input-box">
+                <label for="message">Comment your Feedback</label>
+                <textarea name="message" id="message" placeholder="Enter your message"></textarea>
+                <div class="error-message"></div>
+            </div>
+            
+            <button type="submit" class="submit">Submit</button>
+        </form>
+    </div>
+    <!-- script -->
+    <script src="{% static 'js/feedback.js' %}"></script>
+</body>
+</html>

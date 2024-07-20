@@ -1,0 +1,88 @@
+{% extends 'index.html' %}
+
+{% block 'main' %}
+<div class="purchase">
+    <div class="lable">
+        <h3>Total Price</h3>
+    </div>
+    <div class="price">
+        <h3 class="grand_total"><i class='bx bx-rupee'></i>{{ grand_total }}</h3>
+    </div>
+    <div class="buy-from-cart">
+        <a href="{% url 'buy_from_cart' %}"><button class="buy-prod-from-cart"><i class='bx bx-shopping-bag' ></i> Buy All</button></a>
+    </div>
+    <div class="home-bnt-cnt">
+        <a href="{% url 'landingpage' %}"><button class="home-btn"><i class='bx bxs-cart-add'></i> Continue Shopping</button></a>
+    </div>
+</div>
+<div class="category">
+    <div class="cat-name">
+        <h1>My Cart</h1>
+        <span class="tot-items">{{ cart_items|length }} Items</span>
+    </div>
+    <hr>
+    <div class="cart-headings">
+        <h3>Product</h3>
+        <h3>Name</h3>
+        <h3>Price</h3>
+        <h3>Quantity</h3>
+        <h3>Total</h3>
+    </div>
+    <div class="products" id="mobile-view">
+        {% for item in cart_items %}
+        <div class="card">
+            <div class="img-cnt">
+                <img src="{{ item.product.prod_image.url }}" alt="" class="prod-img">
+            </div>
+            <div class="details">
+                <h3 class="prod-name">{{ item.product.prod_name }}</h3>
+                <table class="prod-table">
+                    <tr>
+                        <th>Price </th>
+                        <td class="prod-td">
+                            <p class="cart-prod-price"><i class='bx bx-rupee'></i>{{ item.product.prod_price }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Quantity </th>
+                        <td class="prod-td">
+                            <p class="cart-prod-quantity">{{ item.quantity }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Total </th>
+                        <td class="prod-td">
+                            <p class="prod-total"><i class='bx bx-rupee'></i>{{ item.total_price }}</p>
+                        </td>
+                    </tr>
+                </table>
+                
+                <div class="prod-btns">
+                    <button type="submit" class="remove-item-from-cart"><i class="fa-solid fa-trash"></i> Remove</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="products" id="larg-screen-view">
+        {% for item in cart_items %}
+        <div class="cart-card">
+            <div class="card-img-cnt">
+                <img src="{{ item.product.prod_image.url }}" alt="" class="cart-prod-img">
+            </div>
+            <h3 class="cart-prod-name">{{ item.product.prod_name }}</h3>
+            <h3 class="cart-prod-price"><i class='bx bx-rupee'></i>{{ item.product.prod_price }}</h3>
+            <h3 class="cart-prod-quantity">{{ item.quantity }}</h3>
+            <h3 class="prod-total"><i class='bx bx-rupee'></i>{{ item.total_price }}</h3>
+            <form action="{% url 'remove_from_cart' item.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="remove-cart"><i class="fa-solid fa-trash"></i></button>
+            </form>
+        </div>
+        {% endfor %}
+        {% if cart_items|length == 0 %}
+        <p>No Items in the cart  <a href="{% url 'landingpage' %}">Continue Shopping</a></p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

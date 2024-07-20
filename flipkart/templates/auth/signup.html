@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- loding static files -->
+     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'images/logo/flipkartlogo.png' %}">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="container">
+        <div class="feedback-cnt">
+            <div class="title">
+                <h1>Sign Up</h1>
+            </div>
+        </div>
+        <form method="post" enctype="multipart/form-data" onsubmit="return validate()">
+            {% csrf_token %}
+            <div class="input-box">
+                <input type="text" name="uname" id="uname" placeholder="Username">
+                <div class="uname-error error"></div>
+            </div>
+            <div class="input-box input-box-name">
+                <div class="fname-cnt">
+                    <input type="text" name="fname" id="fname" placeholder="First Name">
+                    <div class="fname-error error"></div>
+                </div>
+                <div class="lname-cnt">
+                    <input type="text" name="lname" id="lname" placeholder="Last Name">
+                    <div class="lname-error error"></div>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <div class="email-error error"></div>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <div class="password-error error"></div>
+            </div>
+            <div class="input-box">
+                <input type="password" name="con_password" id="con_password" placeholder="Conform Password">
+                <div class="con-password-error error"></div>
+            </div>
+            <div class="password-match-error error" style="margin-bottom: 10px;"></div>            <button type="submit" class="submit">Sign Up</button>
+        </form>
+    </div>
+    <!-- script -->
+    <script src="{% static 'js/signup.js' %}"></script>
+</body>
+</html>

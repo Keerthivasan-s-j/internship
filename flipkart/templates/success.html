@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Success</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Nunito;
+        }
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: whitesmoke;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 400px;
+            height: 400px;
+            background-color: white;
+            border-radius: 24px;
+            box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.158);
+        }
+        .icon,
+        .success-message{
+            font-size: 2rem;
+            color: #03C03C;
+        }
+        .icon{
+            font-size: 10rem;
+        }
+    </style>
+    <div class="container">
+        <div class="icon">
+            <i class='bx bxs-smile'></i>
+        </div>
+        <div class="success-message">
+            Success!
+        </div>
+        <div class="message">
+            <p>Order place Sucessfully</p>
+        </div>
+    </div>
+</body>
+</html>

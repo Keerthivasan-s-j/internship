@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito;
+}
+body{
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    padding: 30px;
+}
+.container{
+    border-radius: 10px;
+    position: relative;
+    border: none;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.167);
+}
+.title{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.input-cnt{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+.input-cnt>input{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    width: 100%;
+}
+textarea{
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 5px 10px;
+    resize: none;
+    width: 100%;
+    height: 150px;
+}
+.add-product{
+    width: 100%;
+}
+.add-product>button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: #2874f0;
+}
+.image-input-box,
+.select-category{
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.select-category>select{
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+.home-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: #ffbf00;
+    border-radius: 4px;
+    top: 10px;
+    right: 10px;
+}
+.home-icon-link{
+    color: black;
+    text-decoration: none;
+}
+
+@media (max-width:500px){
+    body{
+        padding: 10px;
+    }
+    .container{
+        margin: 20px;
+        padding: 10px;
+    }
+    .title{
+        font-size: 1.5rem;
+    }
+    .home-icon{
+        width: 30px;
+        height: 30px;
+    }
+    .home-icon-link{
+        font-size: 1rem
+    }
+}

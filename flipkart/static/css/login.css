@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito;
+}
+body{
+    background-color: whitesmoke;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 30px;
+    background-color: whitesmoke;
+}
+.login-cnt{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    height: fit-content;
+    width: 700px;
+    box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.153);
+}
+.logo>img{
+    width: 100px;
+}
+.poster{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2874f0;
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+}
+.title{
+    margin-bottom: 30px;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+    padding: 30px;
+    width: 50%;
+}
+.login-form>form{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    flex-direction: column;
+}
+.input-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.input-box>input{
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1.5px solid black;
+    border-radius: 10px;
+}
+form>label{
+    font-size: 1rem;
+}
+.login{
+    border: none;
+    color: white;
+    background-color: #2874f0;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.signup-cnt{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.signup-cnt ,a, p{
+    font-size: 13px;
+}
+.password-error,
+.uname-error,
+.invalid-error{
+    color: red;
+    font-size: 14px;
+}
+@media (max-width: 600px){
+    .login-cnt{
+        box-shadow: none;
+    }
+    .poster{
+        display: none;
+    }
+    .container{
+        padding: 0;
+    }
+    .login-form{
+        width: 100%;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .login-cnt{
+        margin: 10px;
+    }
+}

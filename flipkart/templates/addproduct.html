@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- loding static files -->
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/addproduct.css' %}">
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'images/logo/flipkartlogo.png' %}">
+    <!-- Box icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Add Product</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title-cnt">
+            <p class="title">Add Product</p>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-cnt">
+                <input type="text" name="prod_name" id="prod_name" placeholder="Product Name" required>
+            </div>
+            <div class="input-cnt">
+                <input type="number" name="prod_price" id="prod_price" placeholder="Product Price" required>
+            </div>
+            <div class="input-cnt">
+                <input type="number" name="prod_discount" id="prod_discount" placeholder="Product Discount">
+            </div>
+            <div class="select-category">
+                <label for="category">Category of the product</label>
+                <select name="category" id="category" required>
+                    <option value="1">Electronics</option>
+                    <option value="2">Home</option>
+                    <option value="3">Fashion</option>
+                </select>
+            </div>
+            <div class="input-cnt">
+                <textarea name="prod_details" id="prod_details" placeholder="Product Details" required></textarea>
+            </div>
+            <div class="image-input-box">
+                <label for="prod_img">Product Image</label>
+                <input type="file" name="prod_img" id="prod_img" required>
+            </div>
+            <!-- <div class="input-cnt">
+                <input type="number" name="phone" id="phone" placeholder="Phone Number">
+            </div>
+            <div class="input-cnt">
+                <textarea name="address" id="address" placeholder="Address"></textarea>
+            </div> -->
+            <div class="add-product">
+                <button type="submit">Add Product</button>
+            </div>
+        </form>
+        <div class="home-icon">
+            <a href="{% url 'landingpage' %}" class="home-icon-link"><i class='bx bxs-home'></i></a>
+        </div>
+    </div>
+    <!-- Script -->
+     <!-- <script src="{% static 'js/addproduct.js' %}"></script> -->
+</body>
+</html>

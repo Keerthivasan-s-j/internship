@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Box Icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'images/logo/flipkartlogo.png' %}">
+    <title>Flipkart</title>
+</head>
+<body>
+    <!-- Top Navigation bar -->
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="{% static 'images/logo/flipkartlogo.png' %}" alt="FlipCart Logo">
+            <a href="{% url 'landingpage' %}" class="logo-link"><p class="logo-name">Flipkart</p></a>
+        </div>
+        {% block 'search' %}
+        <form method="post" class="search-bar">
+            {% csrf_token %}
+            <input type="text" name="search" id="search" placeholder="Search for products, brands and more">
+            <button type="submit"><i class='bx bx-search'></i></button>
+        </form>
+        {% endblock %}
+        <div class="nav-btn-cnt">
+            {% if not user.is_authenticated %}
+                <a href="{% url 'login' %}" class="nav-links"><button class="nav-btn login">Login</button></a>
+            {% endif %}
+            {% if user.is_staff %}
+                <a href="{% url 'addproduct' %}" class="nav-links"><button class="nav-btn">Add Product</button></a>
+            {% endif %}
+            <a href="{% url 'aboutus' %}" class="nav-links"><button class="nav-btn">About</button></a>
+            <a href="{% url 'cart' %}" class="nav-links"><button class="nav-btn cart"><i class='bx bx-cart'></i> Cart</button></a>
+            {% if user.is_authenticated %}
+                <div class="user-cnt">
+                    <div class="profile-pic">
+                        <img src="{% static 'images/profile/profile.webp' %}" alt="Profile">
+                    </div>
+                    <div class="account">
+                        <p class="user-name" style="color: white;">{{ user.username }}</p>
+                        <!-- <div class="drop-down-cnt">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div> -->
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="toggle">
+            <button class="toggle-btn"><i class='bx bx-menu-alt-right'></i></button>
+        </div>
+    </nav>
+    <!-- Main Container -->
+    <main>
+        {% block 'main' %}
+        <!-- Slider -->
+        <section class="slider-cnt">
+            <div class="banner">
+                <!-- <img src="static/images/banner/image1.png" alt="" class="banner-img"> -->
+                <img src="{% static 'images/banner/image2.png' %}" alt="" class="banner-img">
+                <!-- <img src="static/images/banner/image3.png" alt="" class="banner-img"> -->
+            </div>
+        </section>
+        <div class="category">
+            <div class="cat-name">
+                <h1>{{ query }}</h1>
+                <span class="tot-items">{{ products.count }} Items</span>
+            </div>
+            <hr>
+            <div class="products-cnt">
+                <div class="products">
+                    {% for product in products %}
+                    <div class="card">
+                        <div class="img-cnt">
+                            <img src="{{ product.prod_image.url }}" alt="" class="prod-img">
+                        </div>
+                        <div class="details">
+                            <h3 class="prod-name">{{ product.prod_name }}</h3>
+                            <table class="prod-table">
+                                <tr>
+                                    <th>Price </th>
+                                    <td class="prod-td">
+                                        <p class="prod-price"><i class='bx bx-rupee'></i>{{ product.prod_price }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Details </th>
+                                    <td class="prod-td">
+                                        <p class="prod-detail">{{ product.prod_details }}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="prod-btns">
+                                <a href="{% url 'add_to_cart' product.id %}"><button class="add-to-cart">Add to Cart</button></a>
+                                <a href="{% url 'buy' %}"><button class="buy-prod">Buy</button></a>
+                            </div>
+                        </div>
+                        {% if product.discount != 0 %}
+                        <div class="discount">
+                            <p class="prod-discount">{{ product.discount }}%</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="foot-sec">
+                <div class="title">
+                    <p>About</p>
+                </div>
+                <div class="details">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam incidunt sunt quos distinctio fuga? Sed atque quaerat facere ea dolorem?</p>
+                </div>
+            </div>
+            <div class="foot-sec">
+                <div class="title">
+                    <p>Contact</p>
+                </div>
+                <div class="details">
+                    <table>
+                        <tr>
+                            <td>Address  </td>
+                            <td>Banglure, Karnataka</td>
+                        </tr>
+                        <tr>
+                            <td>Email  </td>
+                            <td>contact@flipkart.com</td>
+                        </tr>
+                        <tr>
+                            <td>Phone  </td>
+                            <td>+123 456 789</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="foot-sec">
+                <div class="title">
+                    <p>Help</p>
+                </div>
+                <p>For help reach out <br>help@flipkart.com</p>
+            </div>
+            <div class="foot-sec">
+                <div class="title">
+                    <p>Navigations</p>
+                </div>
+                <div class="foot-nav-links">
+                    <a href="{% url 'logout' %}" ><button>Logout</button></a>
+                    <a href="{% url 'aboutus' %}" ><button>About Us</button></a>
+                    <a href="{% url 'cart' %}" ><button>Cart</button></a>
+                    <a href="{% url 'signup' %}" ><button>Sign Up</button></a>
+                    <a href="{% url 'feedback' %}" ><button>Feedback</button></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-bottom">
+            <p>&copy; 2007-2024 Flipkart.com</p>
+        </div>
+    </footer>
+    <!-- Script -->
+     <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

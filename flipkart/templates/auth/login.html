@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- loding static files -->
+     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'images/logo/flipkartlogo.png' %}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-cnt">
+            <div class="poster">
+                <div class="logo">
+                    <img src="{% static 'images/logo/flipkartlogo.png' %}" alt="">
+                </div>
+            </div>
+            <div class="login-form">
+                <div class="title">
+                    <h1>Login</h1>
+                </div>
+                <form method="post" onsubmit="return validate();">
+                    {% csrf_token %}
+                    <div class="input-box">
+                        <label for="uname_or_email">Username or Email</label>
+                        <input type="text" name="uname_or_email" id="uname_or_email" placeholder="Enter the Username or email">
+                        <div class="uname-error"></div>
+                    </div>
+                    <div class="input-box">
+                        <label for="pwd">Password</label>
+                        <input type="password" name="pwd" id="pwd" placeholder="Enter the password">
+                        <div class="password-error"></div>
+                    </div>
+                    <div class="signup-cnt">
+                        <a href="">Forget Password?</a>
+                        <p class="signup">Don't have an accoutn <a href="{% url 'signup' %}">Sign Up</a></p>
+                    </div>
+                    <div class="invalid-error">{{error_message}}</div>
+                    <button class="login" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- script -->
+     <script src="{% static 'js/login.js' %}"></script>
+</body>
+</html>
