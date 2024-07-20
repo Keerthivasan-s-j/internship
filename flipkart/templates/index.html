@@ -44,11 +44,9 @@
                     </div>
                     <div class="account">
                         <p class="user-name" style="color: white;">{{ user.username }}</p>
-                        <!-- <div class="drop-down-cnt">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                        </div> -->
+                        <div class="drop-down-cnt">
+                            <a class="nav-logout" href="{% url 'logout' %}" >Logout</a>
+                        </div>
                     </div>
                 </div>
             {% endif %}

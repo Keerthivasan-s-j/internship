@@ -391,6 +391,28 @@ td{
     padding: 10px 10px;
     cursor: pointer;
 }
+.user-cnt{
+    position: relative;
+}
+.drop-down-cnt{
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    width: 120px;
+    border-radius: 10px;
+    padding: 20px;
+    top: 30px;
+    left: 0;
+    gap: 10px;
+}
+.user-cnt:hover .drop-down-cnt{
+    display: flex;
+}
+.nav-logout{
+    text-decoration: none;
+}
 
 /* responsiveness */
 @media (max-width: 900px) {
