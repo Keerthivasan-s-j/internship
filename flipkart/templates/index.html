@@ -51,7 +51,7 @@
                 </div>
             {% endif %}
         </div>
-        <div class="toggle">
+        <div class="toggle" onclick="open_nav()">
             <button class="toggle-btn"><i class='bx bx-menu-alt-right'></i></button>
         </div>
     </nav>
@@ -112,6 +112,18 @@
         </div>
         {% endblock %}
     </main>
+    <div id="side-nav-cnt">
+        <div class="side-nav">
+            <div class="close-btn-cnt" onclick="close_nav()">
+                <i class='bx bx-x'></i>
+            </div>
+            <a href="{% url 'logout' %}" ><button>Logout</button></a>
+            <a href="{% url 'aboutus' %}" ><button>About Us</button></a>
+            <a href="{% url 'cart' %}" ><button>Cart</button></a>
+            <a href="{% url 'signup' %}" ><button>Sign Up</button></a>
+            <a href="{% url 'feedback' %}" ><button>Feedback</button></a>
+        </div>
+    </div>
     <!-- Footer -->
     <footer>
         <div class="footer-top">

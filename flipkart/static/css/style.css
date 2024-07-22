@@ -413,6 +413,47 @@ td{
 .nav-logout{
     text-decoration: none;
 }
+#side-nav-cnt{
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.side-nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    height: 400px;
+    width: 300px;
+    padding: 30px;
+    background-color: black;
+}
+.side-nav a{
+    width: 100%;
+}
+.side-nav button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    height: 50px;
+    width: 100%;
+    border-radius: 10px;
+}
+.side-nav button:hover{
+    background-color: red;
+}
+.close-btn-cnt>i{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    font-size: 2rem;
+    color: white;
+}
 
 /* responsiveness */
 @media (max-width: 900px) {
