@@ -43,6 +43,13 @@
         .icon{
             font-size: 10rem;
         }
+        .message{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
     </style>
     <div class="container">
         <div class="icon">
@@ -53,6 +60,7 @@
         </div>
         <div class="message">
             <p>Order place Sucessfully</p>
+            <a href="{% url 'landingpage' %}">Continue Shopping</a>
         </div>
     </div>
 </body>
