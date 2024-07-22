@@ -1,26 +1,26 @@
 function validate(){
 
-    var uname = document.getElementById('uname').value
-    var fname = document.getElementById('fname').value
-    var lname = document.getElementById('lname').value
-    var email = document.getElementById('email').value
-    var password = document.getElementById('password').value
-    var con_password = document.getElementById('con_password').value
-    var uname_error = document.querySelector('.uname-error')
-    var fname_error = document.querySelector('.fname-error')
-    var lname_error = document.querySelector('.lname-error')
-    var email_error = document.querySelector('.email-error')
-    var password_error = document.querySelector('.password-error')
-    var con_password_error = document.querySelector('.con-password-error')
-    var password_match_error = document.querySelector('.password-match-error')
+    var uname = document.getElementById('uname').value;
+    var fname = document.getElementById('fname').value;
+    var lname = document.getElementById('lname').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var con_password = document.getElementById('con_password').value;
+    var uname_error = document.querySelector('.uname-error');
+    var fname_error = document.querySelector('.fname-error');
+    var lname_error = document.querySelector('.lname-error');
+    var email_error = document.querySelector('.email-error');
+    var password_error = document.querySelector('.password-error');
+    var con_password_error = document.querySelector('.con-password-error');
+    var password_match_error = document.querySelector('.password-match-error');
 
-    uname_error.innerText = ''
-    fname_error.innerText = ''
-    lname_error.innerText = ''
-    email_error.innerText = ''
-    password_error.innerText = ''
-    con_password_error.innerText = ''
-    password_match_error.innerText = ''
+    uname_error.innerText = '';
+    fname_error.innerText = '';
+    lname_error.innerText = '';
+    email_error.innerText = '';
+    password_error.innerText = '';
+    con_password_error.innerText = '';
+    password_match_error.innerText = '';
 
     var valid = true;
 

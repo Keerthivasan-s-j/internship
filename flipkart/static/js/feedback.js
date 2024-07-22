@@ -1,5 +1,5 @@
 function validate() {
-    var ratings = document.getElementById('ratings')
+    var ratings = document.getElementById('ratings');
     var exp1 = document.getElementById('exp1').checked;
     var exp2 = document.getElementById('exp2').checked;
     var exp3 = document.getElementById('exp3').checked;
