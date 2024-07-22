@@ -117,11 +117,16 @@
             <div class="close-btn-cnt" onclick="close_nav()">
                 <i class='bx bx-x'></i>
             </div>
-            <a href="{% url 'logout' %}" ><button>Logout</button></a>
+            {% if user.is_staff %}
+                <a href="{% url 'addproduct' %}" class="nav-links"><button class="nav-btn">Add Product</button></a>
+            {% endif %}
             <a href="{% url 'aboutus' %}" ><button>About Us</button></a>
             <a href="{% url 'cart' %}" ><button>Cart</button></a>
+            {% if not user.is_authenticated %}
             <a href="{% url 'signup' %}" ><button>Sign Up</button></a>
+            {% endif %}
             <a href="{% url 'feedback' %}" ><button>Feedback</button></a>
+            <a href="{% url 'logout' %}" ><button>Logout</button></a>
         </div>
     </div>
     <!-- Footer -->
